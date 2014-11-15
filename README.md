@@ -1,4 +1,4 @@
-Stupid website snapshot tool.
+Simple crossplatform tool for creating snapshots of websites.
 
 #### Install
 Use Qt5 library (needs core, gui, webkitwidgets modules) to build it :

@@ -4,7 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core webkitwidgets gui
+QT       += core gui webkit
+
+greaterThan(QT_MAJOR_VERSION, 4): {
+  QT       +=  webkitwidgets
+}
 
 TARGET = capt
 CONFIG   += qt console

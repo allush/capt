@@ -4,9 +4,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Capt c;
 
-    QObject::connect(&c, SIGNAL(exitApp()), &a, SLOT(quit()));
+    Capt *c = new Capt();
+
+    QObject::connect(c, SIGNAL(exitApp()), &a, SLOT(quit()));
 
     QString url;
     QString out;
@@ -27,9 +28,9 @@ int main(int argc, char *argv[])
     if(!url.length() or !out.length()){
         qDebug("missed --out or --url params");
         return 0;
-    }else{
-        c.save(QUrl(url), out);
     }
+
+    c->save(QUrl(url), out);
 
     return a.exec();
 }
