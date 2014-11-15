@@ -1,15 +1,15 @@
 Stupid website snapshot tool.
 
 #### Install
-Use Qt5 library (needs core, gui, webkitwidgets modules) to buil it :
--qmake
--make
+Use Qt5 library (needs core, gui, webkitwidgets modules) to build it :
+- qmake
+- make
 
 #### Usage
 
 ./capt --url=http://google.com --out=google.png
 
-##### Available formats
+#### Available formats
 
 png
 jpg
