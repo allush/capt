@@ -8,12 +8,28 @@ int main(int argc, char *argv[])
 
     QObject::connect(&c, SIGNAL(exitApp()), &a, SLOT(quit()));
 
-    QString url = argv[1];
-    url = url.split('=').at(1);
-    QString out = argv[2];
-    out = out.split('=').at(1);
+    QString url;
+    QString out;
 
-    c.save(QUrl(url), out);
+    for(int i = 0; i < argc; i++){
+        QStringList param = QString(argv[i]).split('=');
+        if(param.length() == 1){
+            continue;
+        }
+
+        if(param.at(0) == "--url"){
+            url = param.at(1);
+        } else if(param.at(0) == "--out"){
+            out = param.at(1);
+        }
+    }
+
+    if(!url.length() or !out.length()){
+        qDebug("missed --out or --url params");
+        return 0;
+    }else{
+        c.save(QUrl(url), out);
+    }
 
     return a.exec();
 }

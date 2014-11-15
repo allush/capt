@@ -20,4 +20,5 @@ HEADERS += \
     capt.h
 
 OTHER_FILES += \
-    .gitignore
+    .gitignore \
+    README.md
